@@ -1,0 +1,169 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px wheat inset !important;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Hachi Maru Pop", cursive;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url(./background.jpg);
+  background-position: center center;
+  width: cover;
+  height: cover;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#name-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 90px;
+}
+
+#input,
+::placeholder {
+  text-align: center;
+  padding: 5px;
+  width: 20vw;
+  height: 40px;
+  font-size: 2rem;
+  border-bottom: 4px solid wheat;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+  color: wheat;
+}
+
+@media screen and (max-width: 800px) {
+  #input,
+  ::placeholder {
+    width: 180px;
+    height: 30px;
+    font-size: 1rem;
+  }
+}
+
+#button-sendName {
+  color: wheat;
+  margin-top: 10px;
+  padding: 2px;
+  background-color: transparent;
+  font-size: 20px;
+  width: 8vw;
+  height: 35px;
+  cursor: pointer;
+  border: 2px solid wheat;
+  border-radius: 20px;
+  font-family: "Dancing Script", cursive;
+}
+
+@media screen and (max-width: 800px) {
+  #button-sendName {
+    width: 180px;
+    height: 30px;
+    font-size: 1rem;
+  }
+}
+
+#button-sendName:hover {
+  background-color: lightgreen;
+}
+
+#greet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 100px;
+  color: wheat;
+  font-family: "Dancing Script", cursive;
+}
+
+@media screen and (max-width: 800px) {
+  #greet {
+    display: absolute;
+    position: absolute;
+    left: 40px;
+    top: 20%;
+    font-size: 2rem;
+  }
+}
+
+.balloons img {
+  width: 60px;
+  animation: balloons 16s linear infinite;
+  border-radius: 100%;
+  border-bottom-left-radius: 90%;
+  border-bottom-right-radius: 90%;
+  box-shadow: red 0 0 50px;
+}
+
+@media screen and (max-width: 800px) {
+  #img-id {
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+  }
+}
+
+.balloons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: -200px;
+}
+
+/* Animation */
+@keyframes balloons {
+  0% {
+    transform: translateY(-50vh);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-90vh);
+    opacity: 0;
+  }
+}
+
+.balloons img:nth-child(1) {
+  animation-delay: -3s;
+  position: absolute;
+  left: 5%;
+}
+
+.balloons img:nth-child(2) {
+  animation-delay: 1s;
+  position: absolute;
+  left: 30%;
+}
+
+.balloons img:nth-child(3) {
+  animation-delay: 5s;
+  position: absolute;
+  right: 45%;
+}
+
+.balloons img:nth-child(4) {
+  animation-delay: 8s;
+  position: absolute;
+  right: 20px;
+}

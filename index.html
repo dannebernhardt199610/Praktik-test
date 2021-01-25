@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Potta+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="background">
+      <div id="name-section">
+        <input
+          type="text"
+          id="input"
+          maxlength="25"
+          placeholder="Ange namn"
+          autocapitalize="off"
+        />
+        <button id="button-sendName" type="button">Submit</button>
+      </div>
+      <div class="greet-shrink">
+        <h1 id="greet"></h1>
+      </div>
+
+      <!-- Tillhör animation. Kommer att flyta sakta uppåt på skärmen. -->
+      <div class="balloons">
+        <img id="img-id" src="balloon.jpg" />
+        <img id="img-id" src="balloon2.jpg" />
+        <img id="img-id" src="balloon3.png" />
+        <img id="img-id" src="balloon2.jpg" />
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      // När sidan laddas används funktionen som beskrivs precis nedanför.
+      window.onload = populateStorage();
+
+      // Fyller LocalStorage med två förbestämda namn.
+      function populateStorage() {
+        localStorage.setItem("Hejpa", 1);
+        localStorage.setItem("Dejpa", 1);
+      }
+
+      // Skickar det man skriver i input till LocalStorage och sparar det där.
+      function sendName() {
+        var t = document.getElementById("input").value;
+        document.getElementById("greet").innerHTML = t;
+        var name = localStorage.getItem(document.getElementById("input").value);
+
+        // Ifall namnet är sparat i LocalStorage får man välkommen tillbaka som svar.
+        if (name != null) {
+          document.getElementById("greet").innerHTML = "Välkommen tillbaka...";
+        }
+
+        // Ifall namnet inte är sparat i LocalStorage får man välkommen och sitt namn som svar.
+        if (name == null) {
+          document.getElementById("greet").innerHTML = "Välkommen " + t;
+          localStorage.setItem(document.getElementById("input").value, 1);
+        }
+      }
+
+      var nameSection = document.getElementById("name-section");
+      var greetSection = document.getElementById("greet");
+
+      // Två funktioner i för samma knapp.
+      document.getElementById("button-sendName").onclick = function () {
+        sendName();
+        closeDiv();
+      };
+
+      // Tar bort titel och input från skärmen så att man endast ser bakgrundsbilden.
+      function closeDiv() {
+        nameSection.style.display = "none";
+
+        // Väntar 3 sekunder innan den tar på hälsningsfrasen från skärmen.
+        setTimeout(function () {
+          greetSection.style.display = "none";
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
